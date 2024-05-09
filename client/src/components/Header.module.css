@@ -1,0 +1,55 @@
+.header {
+    position: sticky;
+    top: 0;
+    height: 4rem;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+    background-color: #111;
+    display: grid;
+    grid-template-columns: minmax(10ch, 20%) auto minmax(10ch, 20%);
+    align-items: center;
+}
+
+.header>h1 {
+    grid-column: 2 / 3;
+    text-align: center;
+    margin: 0
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    --thickness: 3px;
+    --length: 1.75rem;
+    --size: calc(var(--length) + 2 * var(--thickness));
+    --offset: calc(var(--length) / 2);
+    position: relative;
+    height: var(--size);
+    width: var(--size);
+}
+
+
+.vertical,
+.horizontal {
+    border: var(--thickness) solid white;
+    border-radius: var(--thickness);
+    position: absolute;
+}
+
+.vertical {
+    height: var(--length);
+    width: 0;
+    top: 0;
+    left: var(--offset);
+}
+
+.horizontal {
+    width: var(--length);
+    height: 0;
+    top: var(--offset);
+    left: 0
+}
