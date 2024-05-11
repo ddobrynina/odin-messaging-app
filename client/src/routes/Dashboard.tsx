@@ -11,13 +11,10 @@ type DashboardProps = {
 
 export default function Dashboard({ userId }: DashboardProps) {
     const [conversations,] = useState(getConversations(userId));
-    return <>
+    return <div style={{ position: "relative" }}>
         <Header />
-        <List
-            items={conversations.map(conv => (
-                <Conversation
-                    conv={conv}
-                    userId={userId} />
+        <List items={conversations.map(conv => (
+            <Conversation conv={conv} userId={userId} />
             ))} />
-    </>
+    </div>
 }

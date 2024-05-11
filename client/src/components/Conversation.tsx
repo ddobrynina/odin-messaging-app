@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import styles from "./Conversation.module.css"
 import { Conversation as ConvType } from '../api/conversations'
@@ -9,9 +9,10 @@ type ConversationProps = {
 }
 
 export default function Conversation({ conv, userId }: ConversationProps) {
+    const preview = useMemo(() => messagePreview(conv, userId), [conv, userId]);
     return <div key={conv.id} className={styles.conversation}>
         <h2>{conv.users.map(u => u.firstName).join(", ")}</h2>
-        {messagePreview(conv, userId)}
+        {preview}
     </div>
 }
 
